@@ -1,5 +1,5 @@
 """EX01 - Chardle - A cute step toward Wordle."""
-__author__ = 730391057
+__author__ = "730391057"
 
 word: str = input("Enter a 5-character word: ")
 
@@ -15,8 +15,6 @@ if len(str(character)) != 1:
 
 print("Searching for " + str(character) + " in " + str(word))
 
-num_of_odds: int = 0
-
 if word[0] == character:
     print(str(character) + " found at index 0")
 
@@ -31,6 +29,8 @@ if word[3] == character:
 
 if word[4] == character:
     print(str(character) + " found at index 4")
+
+num_of_odds: int = 0
 
 if word[0] == character:
     num_of_odds = num_of_odds + 1
@@ -49,7 +49,8 @@ if word[4] == character:
 
 if num_of_odds == 0:
     print("No instances of " + str(character) + " found in " + str(word))
+else:
     if num_of_odds == 1:
         print(str(num_of_odds) + " instance of " + str(character) + " found in " + str(word))
-else:
-    print(str(num_of_odds) + " instances of " + str(character) + " found in " + str(word))
+    else:
+        print(str(num_of_odds) + " instances of " + str(character) + " found in " + str(word))
