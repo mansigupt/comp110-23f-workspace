@@ -1,4 +1,4 @@
-"""EX01 - One-shot Wordle"""
+"""EX01 - One-shot Wordle!"""
 __author__ = "730391057"
 
 answer: str = "python"
@@ -24,7 +24,7 @@ while word_idx < len(answer):
         alt_index: int = 0
         # While loop to check for matches elsewhere in the secret word
         while not diff_place and alt_index < len(answer):
-            if diff_place != word_idx and guess[word_idx] == answer[alt_index]:
+            if alt_index != word_idx and guess[word_idx] == answer[alt_index]:
                 diff_place = True
             alt_index += 1
         if diff_place:
