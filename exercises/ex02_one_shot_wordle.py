@@ -15,7 +15,7 @@ while len(guess) != len(answer):
     guess = input(f"That was not {len(answer)} letters! Try again: ")
 
 while word_idx < len(answer):
-    if word_idx < len(guess) and guess[word_idx] == answer[word_idx]:
+    if guess[word_idx] == answer[word_idx]:
         # Insert green box for correct character and position
         box += GREEN_BOX
     else:
