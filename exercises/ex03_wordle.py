@@ -5,7 +5,9 @@ def contains_char(search_word: str, find_char: str)-> bool:
     """Determining if a single character is part of the word."""
     assert len(find_char) == 1
     word_idx: int = 0
-    if search_word[word_idx] == find_char:
-        return True
-    else:
-        return False  
+    while word_idx < len(search_word):
+        if search_word[word_idx] == find_char:
+            return True
+        word_idx += 1
+    
+    return False  
