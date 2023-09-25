@@ -6,7 +6,7 @@ num_string: str = "203"
 num_of_odds: int = 0
 
 if int(num_string[0]) % 2 == 1:
-    """ If the element at index 0 is odd
+    """ If the element at index 0 is odd 
     increase counter by 1 """
     num_of_odds = num_of_odds + 1
 
