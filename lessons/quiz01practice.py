@@ -1,16 +1,15 @@
-"""Conditional"""
+"""Quiz01 practice"""
 
-x: int = 4
-y: int = 3
 
+x: str = int(input("Pick a number: "))
+y: int = 10
+z: int = 2
 x = x - 1
-if x < y:
-    z = x ** y / 2
+if x < 10:
+    print("A")
+elif (x % z) == 0:
+    print("B")
+if x == (y + z):
+    print("C")
 else:
-    if x == y:
-        z = y % x
-    else:
-        x = x / 2
-        z = y - x
-    z = z + 1
-print(z)
+    print("D")
