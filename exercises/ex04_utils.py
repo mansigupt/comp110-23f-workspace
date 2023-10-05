@@ -1,8 +1,12 @@
 """EX04 - List Utils!"""
 __author__ = "730391057"
 
+
 def all(int_list: int, target_int: int) -> bool:
-    """All the ints in the list are the same as the target int"""
+    """All the ints in the list are the same as the target int."""
+    if not int_list:
+        return False
+    
     int_idx: int = 0
     while int_idx < len(int_list):
         if int_list[int_idx] != target_int:
@@ -11,12 +15,13 @@ def all(int_list: int, target_int: int) -> bool:
     
     return True
 
+
 def max(input: list[int]) -> int:
-    """Return the largest number in a list"""
+    """Return the largest number in a list."""
     if len(input) == 0:
         raise ValueError("max() arg is an empty List")
     
-    max_num: input[0]
+    max_num: int = input[0]
     num_idx: int = 0
 
     while num_idx < len(input):
@@ -25,6 +30,7 @@ def max(input: list[int]) -> int:
         num_idx += 1
     
     return max_num
+
 
 def is_equal(list1, list2) -> bool:
     """Given two lists of int values, return True if every element at every index is equal in both lists."""
