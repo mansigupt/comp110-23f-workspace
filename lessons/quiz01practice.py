@@ -1,15 +1,14 @@
 """Quiz01 practice"""
 
+my_number_string: str = input("Guess a number: ")
+my_number: int = int(my_number_string)
 
-x: str = int(input("Pick a number: "))
-y: int = 10
-z: int = 2
-x = x - 1
-if x < 10:
+if my_number % 3 != 0:
     print("A")
-elif (x % z) == 0:
+elif my_number > 4:
     print("B")
-if x == (y + z):
-    print("C")
 else:
+    print("C")
+
+if my_number + 1 <= 18:
     print("D")
