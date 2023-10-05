@@ -2,7 +2,7 @@
 __author__ = "730391057"
 
 
-def all(int_list: int, target_int: int) -> bool:
+def all(int_list: str, target_int: int) -> bool:
     """All the ints in the list are the same as the target int."""
     if not int_list:
         return False
@@ -32,7 +32,7 @@ def max(input: list[int]) -> int:
     return max_num
 
 
-def is_equal(list1, list2) -> bool:
+def is_equal(list1: str, list2: str) -> bool:
     """Given two lists of int values, return True if every element at every index is equal in both lists."""
     idx1: int = 0
     idx2: int = 0
