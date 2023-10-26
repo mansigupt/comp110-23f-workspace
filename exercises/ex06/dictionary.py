@@ -18,12 +18,12 @@ def invert(input_dict: dict[str, str]) -> dict[str, str]:
 
 # FIXXXXXX!
 def favorite_color(color_dict: dict[str, str]) -> str:
-    color_count = {}  # Dictionary to store color counts
+    color_count: dict = {}  # Dictionary to store color counts
     most_popular_color: str = ""
     max_count: int = 0
 
-    for color in color_dict:
-        if color not in color_count:
+    for color in color_dict.values:
+        if color not in color_count.keys:
             color_count[color] = 1
         else:
             color_count[color] += 1
