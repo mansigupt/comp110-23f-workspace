@@ -5,7 +5,7 @@ from lessons.zip import zip
 
 
 # edge case
-def test_zip_diff_length():
+def test_zip_diff_length() -> None:
     """Testing if zip return an empty dictionary if list are different lengths."""
     list_1: list[str] = ["apple", "banana", "cherry"]
     list_2: list[int] = [1, 2]
@@ -13,7 +13,7 @@ def test_zip_diff_length():
 
 
 # use case
-def test_zip_normal():
+def test_zip_normal() -> None:
     """Testing if zip return an a normal dictionary given two lists of the same length."""
     test_list_1: list[str] = ["Happy", "Tuesday"]
     test_list_2: list[int] = [1, 2]
@@ -21,7 +21,7 @@ def test_zip_normal():
 
 
 # use case
-def test_zip_normal_2():
+def test_zip_normal_2() -> None: 
     """Testing if zip return an a normal dictionary given two lists of the same length, but longer lists and numbers rearranged."""
     test_list_1: list[str] = ["I", "love", "comp", "110"]
     test_list_2: list[int] = [1, 3, 4, 2]

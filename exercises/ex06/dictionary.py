@@ -2,7 +2,7 @@
 __author__ = "730391057"
 
 def invert(input_dict: dict[str, str]) -> dict[str, str]:
-    """Given a dictionary of [str, str], invert should return a dict[str, str] that inverts the keys and the values."""
+    """Given a dictionary of [str, str], invert should return a dict[str,str] that inverts the keys and the values."""
     inverted_dict = {}
     
     for key, value in input_dict:
@@ -16,24 +16,30 @@ def invert(input_dict: dict[str, str]) -> dict[str, str]:
     
     return inverted_dict
 
-# FIXXXXXX!
-def favorite_color(color_dict: dict[str, str]) -> str:
-    color_count: dict = {}  # Dictionary to store color counts
+
+def favorite_color(colors_dict: dict[str,str]) -> str:
+    """Return the most popular color in a dictionary and if it's a tie return the first color in the dict."""
+    color_count: dict = {}
     most_popular_color: str = ""
     max_count: int = 0
 
-    for color in color_dict.values:
-        if color not in color_count.keys:
-            color_count[color] = 1
-        else:
+    for color in colors_dict.values():
+        if color in color_count:
             color_count[color] += 1
+        else:
+            color_count[color] = 1
 
-        # Update the most popular color
         if color_count[color] > max_count:
             max_count = color_count[color]
             most_popular_color = color
+        elif color_count[color] == max_count:
+            if list(colors_dict.values()).index(color) < list(colors_dict.values()).index(most_popular_color):
+                most_popular_color = color
 
     return most_popular_color
+
+result = favorite_color({"Marc": "green", "Ezri": "blue", "Kris": "blue", "Amy": "green"})
+print(result)
 
 
 def count(input_list: list[str]) -> dict[str, int]:
@@ -75,10 +81,3 @@ def update_attendance(attendance_dict: dict[str, list[str]], day: str, student: 
         attendance_dict[day] = [student]
     
     return attendance_dict
-
-
-if __name__ == "__main__":
-    # Example usage and testing
-    color_dict = {"Marc": "yellow", "Ezri": "blue", "Kris": "blue"}
-    result = favorite_color(color_dict)
-    print(result)
