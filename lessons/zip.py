@@ -11,8 +11,7 @@ def zip(list_1: list[str], list_2: list[int]) -> dict[str, int]:
     new_dict: dict[str, int] = {}
 
     idx: int = 0
-    while idx < len(list_1):
+    for idx in range(0,len(list_1)):  # Use range to iterate over indices
         new_dict[list_1[idx]] = list_2[idx]
-        idx += 1
     
     return new_dict
