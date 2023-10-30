@@ -7,15 +7,13 @@ def invert(input_dict: dict[str, str]) -> dict[str, str]:
     inverted_dict: dict[str, str] = {}
     
     for key in input_dict:  # Iterate over keys in the input dictionary.
-        value = input_dict[key]  # Get the value for the current key.
-        
         # Check if the value is already in the inverted dictionary
-        if value in inverted_dict:
+        if input_dict[key] in inverted_dict:
             # If the value is already a key in the inverted dictionary, raise a KeyError
-            raise KeyError(f"KeyError: Duplicate value '{value}' encountered.")
+            raise KeyError(f"KeyError: Duplicate value '{input_dict[key]}' encountered.")
         else:
             # Otherwise, add the inverted key-value pair to the inverted dictionary
-            inverted_dict[value] = key
+            inverted_dict[input_dict[key]] = key
     
     return inverted_dict
 
@@ -28,21 +26,18 @@ def favorite_color(colors_dict: dict[str, str]) -> str:
     max_count: int = 0
 
     # Iterate through the values in colors_dict.
-    for color in colors_dict.values():
+    for key in colors_dict:
+        color: str = colors_dict[key]
         if color in color_count:  # Check if the color is already in the color_count dictionary.
             color_count[color] += 1  # Add the count for the current color if present.
         else:
             color_count[color] = 1  # If the color is not in the dictionary, add it with a count of 1.
-
+    for colors in color_count:
         # If the count for the current color is greater than the max count, update the most_popular_color.
-        if color_count[color] > max_count:
-            max_count = color_count[color]
-            most_popular_color = color
-        # If there's a tie in count, check the order of appearance and select the first color.
-        elif color_count[color] == max_count:
-            if list(colors_dict.values()).index(color) < list(colors_dict.values()).index(most_popular_color):
-                most_popular_color = color
-
+        if color_count[colors] > max_count:
+            most_popular_color = colors
+        max_count = color_count[colors]
+        
     return most_popular_color
 
 
