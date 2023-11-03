@@ -76,7 +76,8 @@ def update_attendance(attendance_dict: dict[str, list[str]], day: str, student: 
     # Check if the day already exists in the dictionary
     if day in attendance_dict:
         # If the day exists, append the student to the list of attendees for that day
-        attendance_dict[day].append(student)
+        if student not in attendance_dict[day]:
+            attendance_dict[day].append(student)
     else:
         # If the day does not exist, create a new entry with the day as the key and a list containing the student
         attendance_dict[day] = [student]
