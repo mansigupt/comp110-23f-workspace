@@ -21,6 +21,22 @@ class River:
             self.bears.append(Bear())
 
     def check_ages(self):
+        new_bears = []
+        new_fish = []
+
+        # Iterate through the Bears and check their ages
+        for bear in self.bears:
+            if bear.age <= 5:
+                new_bears.append(bear)
+
+        # Iterate through the Fish and check their ages
+        for fish in self.fish:
+            if fish.age <= 3:
+                new_fish.append(fish)
+
+        # Update self.bears and self.fish with the new lists
+        self.bears = new_bears
+        self.fish = new_fish
         return None
 
     def bears_eating(self):
@@ -36,6 +52,9 @@ class River:
         return None
     
     def view_river(self):
+        print(f"~~~ Day {self.day}: ~~~")
+        print(f"Fish population: {len(self.fish)}")
+        print(f"Bear population: {len(self.bears)}")
         return None
             
     def one_river_day(self):
@@ -60,4 +79,10 @@ class River:
         self.repopulate_bears()
         # Visualize River
         self.view_river()
+    
+    def one_river_week(self):
+        days: int = 0
+        while days < 7:
+            self.one_river_day()
+            days += 1
             
