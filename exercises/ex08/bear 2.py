@@ -1,9 +1,8 @@
-"""File to define Fish class"""
+"""File to define Bear class"""
 
-class Fish:
+class Bear:
     
     def __init__(self):
-        self.age = 0
         return None
     
     def one_day(self):

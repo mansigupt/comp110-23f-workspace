@@ -3,6 +3,10 @@
 from exercises.ex08.fish import Fish
 from exercises.ex08.bear import Bear
 
+day: int
+bears: list[Bear]
+fish: list[Fish]
+
 class River:
     
     def __init__(self, num_fish: int, num_bears:int):
