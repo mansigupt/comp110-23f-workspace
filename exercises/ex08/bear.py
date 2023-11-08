@@ -8,5 +8,10 @@ class Bear:
         return None
     
     def one_day(self):
+        self.hunger_score -= 1
         self.age += 1
         return None
+    
+    def eat(self, num_fish: int):
+        # Update the bear's hunger_score
+        self.hunger_score += num_fish
