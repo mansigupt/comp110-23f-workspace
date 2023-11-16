@@ -1,4 +1,4 @@
-"""Node Class."""
+"""Node Class for a linked list."""
 
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ class Node:
     next: Node | None
     
     def __init__(self, data: int, next: Node | None):
-        """Construct Node."""
+        """Construct a Node."""
         self.data = data
         self. next = next
         
