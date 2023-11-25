@@ -37,39 +37,56 @@ class Simpy:
     
     def __add__(self, rhs: Union[float, Simpy]) -> Simpy:
         """Add a Simpy object or float to the current Simpy object."""
+        result_values = []
         if isinstance(rhs, Simpy):
-            min_len = min(len(self.values), len(rhs.values))
-            result_values = [self.values[i] + rhs.values[i] for i in range(min_len)]
+            for i in range(len(self.values)):
+                result_values.append(self.values[i] + rhs.values[i])
         elif isinstance(rhs, float):
-            result_values = [x + rhs for x in self.values]
-        
+            for x in self.values:
+                result_values.append(x + rhs)
         return Simpy(result_values)
         
     def __pow__(self, rhs: Union[float, Simpy]) -> Simpy:
         """Raise each element in the Simpy object to the power of the corresponding element in another Simpy object or float."""
+        result_values = []
         if isinstance(rhs, Simpy):
-            result_values = [self.values[i] ** rhs.values[i] for i in range(len(self.values))]
+            for i in range(len(self.values)):
+                result_values.append(self.values[i] ** rhs.values[i])
         elif isinstance(rhs, float):
-            result_values = [x ** rhs for x in self.values]
+            for x in self.values:
+                result_values.append(x ** rhs)
         return Simpy(result_values)
     
     def __eq__(self, rhs: Union[float, Simpy]) -> list[bool]:
         """Compare the Simpy object with another Simpy object or float for equality."""
+        result_values = []
         if isinstance(rhs, Simpy):
-            min_length = min(len(self.values), len(rhs.values))
-            return [self.values[i] == rhs.values[i] for i in range(min_length)]
+            for i in range(len(self.values)):
+                result_values.append(self.values[i] == rhs.values[i])
         elif isinstance(rhs, float):
-            return [x == rhs for x in self.values]
+            for x in self.values:
+                result_values.append(x == rhs)
+        return result_values
         
     def __gt__(self, rhs: Union[float, Simpy]) -> list[bool]:
         """Compare the Simpy object with another Simpy object or float for greater than."""
+        result_values = []
         if isinstance(rhs, Simpy):
-            min_length = min(len(self.values), len(rhs.values))
-            return [self.values[i] > rhs.values[i] for i in range(min_length)]
+            for i in range(len(self.values)):
+                result_values.append(self.values[i] > rhs.values[i])
         elif isinstance(rhs, float):
-            return [x > rhs for x in self.values]
+            for x in self.values:
+                result_values.append(x > rhs)
+        return result_values
         
     def __getitem__(self, rhs: Union[int, list[bool]]) -> Union[float, Simpy]:
         """Retrieve an element or create a new Simpy object using indexing or boolean masking."""
-        return self.values[rhs]
+        result_values = []
+        if isinstance(rhs, int):
+            return self.values[rhs]
+        elif isinstance(rhs, list):
+            for i in range(len(self.values)):
+                if i < len(rhs) and rhs[i]:
+                    result_values.append(self.values[i])
+        return Simpy(result_values)
     
