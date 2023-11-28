@@ -25,7 +25,7 @@ class ChristmasTreeFarm:
         """Grows each planted tree"""
         i: int = 0
         while i < self.plots:
-            if self.plots[i] != 1:
+            if self.plots[i] != 0:
                 self.plots[i] += 1
             i += 1
 
@@ -33,16 +33,14 @@ class ChristmasTreeFarm:
         """Harvest trees that are fully grown."""
         total_trees: int = 0
         i: int = 0
-
         while i < len(self.plots):
             if self.plots[i] >= 5:
                 total_trees += 1
-                if replant:
+                if replant == True:
                     self.plots[i] = 1
                 else:
                     self.plots[i] = 0
         i += 1
-
         return total_trees
     
     def __add__(self, rhs: ChristmasTreeFarm) -> ChristmasTreeFarm:
@@ -54,5 +52,4 @@ class ChristmasTreeFarm:
         for plot in rhs.plots:
             if plot > 0:
                 trees += 1
-        
         return ChristmasTreeFarm(len(self.plots) + len(rhs.plots), trees)

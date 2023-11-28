@@ -8,7 +8,7 @@ class Course:
     level: int
     prereqs: list[str]
 
-    def find_courses(self, list_courses: list[Course], search_word: str) -> list[str]:
+    def find_courses(list_courses: list[Course], search_word: str) -> list[str]:
         """Finds 400+ level courses with the given prereq."""
         course_names: list[str] = []
 
