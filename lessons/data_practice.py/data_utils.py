@@ -19,3 +19,13 @@ def column_vals(table: list[dict[str, str]], header: str) -> list[str]:
         # save every value under key header
         result.append(row[header])
     return result
+
+def columnar(table: list[dict[str,str]]) -> dict[str, list[str]]:
+    """Reformat data so it's a dictionary with column headers as keys"""
+    result: dict[str, list[str]] = {}
+    # loop through keys of one row of the table to get the headers
+    first_row: dict[str,str] = table[0]
+    for key in first_row:
+        # for each key (header), make a dictionary entry with all the column values
+        result[key] = column_vals(table, key)
+    return result
